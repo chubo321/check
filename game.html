@@ -132,6 +132,7 @@
 		but = document.querySelector('#answer');
 		field = document.querySelector('.field');
 		answer = 0;
+		all = 0;
 		score = 0;
 		time = 60;
 
@@ -140,6 +141,7 @@
 		}
 
 		function generate() {
+			all++;
 			type = ['+', '-', '*', '/'];
 			type = type[rand(4)];
 			if (type == '+') {
@@ -209,7 +211,7 @@
 				document.querySelector('.mod').style = '';
 				document.querySelector('.modal').style = 'display: none';
 				document.querySelector('.modal2').style = 'display: flex;';
-				document.querySelector('#res').innerHTML = score;
+				document.querySelector('#res').innerHTML = score + ' / ' + all;
 				document.querySelector('.timer').outerHTML = '';
 			}
 		}, 1000);
