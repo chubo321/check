@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Счетовод</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		body {
+			overflow: hidden;
+			background: #333;
+			transition: .2s all;
+		}
+		.field {
+			width: 100vw;
+			height: 90vh;
+		}
+		.bot {
+			width: 100vw;
+			height: 10vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+		}
+		button {
+			margin-bottom: 0 !important;
+			font-size: 25px;
+			color: #fff;
+			background: blue;
+			border: none;
+			padding: 5px 10px;
+			border-radius: 10px;
+			transition: .2s all;
+			margin-left: 10px;
+			height: 50px;
+			cursor: pointer;
+		}
+		button:hover {
+			background: #fff;
+			border: 1px solid blue;
+			color: blue;
+			transition: .2s all;
+		}
+		input {
+			height: 50px;
+			padding: 5px 15px ;
+			border-radius: 10px;
+			border: 1px black solid;
+			outline: none;
+			font-size: 30px;
+		}
+		.field {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: white;
+			font-size: 60px;
+		}
+		.ok {
+			-webkit-box-shadow: 0px -1px 43px 14px rgba(0, 223, 56, 0.61) inset;
+			-moz-box-shadow: 0px -1px 43px 14px rgba(0, 223, 56, 0.61) inset;
+			box-shadow: 0px -1px 43px 14px rgba(0, 223, 56, 0.61) inset;
+			transition: .2s all;
+		}
+		.not {
+			-webkit-box-shadow: 0px -1px 43px 14px rgba(223, 0, 0, 0.61) inset;
+			-moz-box-shadow: 0px -1px 43px 14px rgba(223, 0, 0, 0.61) inset;
+			box-shadow: 0px -1px 43px 14px rgba(223, 0, 0, 0.61) inset;
+			transition: .2s all;
+		}
+		.modal, .modal2 {
+			position: absolute;
+			background: #fff;
+			padding: 30px 10px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			top: 50%;
+			left: 50%;
+			border-radius: 10px;
+			transform: translate(-50%, -50%);
+		}
+		.mod {
+			position: absolute;
+			width: 100vw;
+			height: 100vh;
+			background: #00000030;
+		}
+		.timer {
+			position: absolute;
+			color: #fff;
+			font-size: 35px;
+			top: 10px;
+			right: 10px;
+		}
+		.modal2 {
+			display: none;
+		}
+		.modal button, .modal2 button {
+			margin-left: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="mod">
+		<div class="modal">
+			<h1>Устный счет</h1>
+			<button id="start">Начать</button>
+		</div>
+		<div class="modal2">
+			<h1 style="display: flex;">Ваш счет: <div id="res"></div></h1>
+			<button onclick="window.location.reload();">Заново</button>
+		</div>
+	</div>
+	<div class="field">
+	</div>
+	<div class="bot">
+		<input type="number" id="inputPassword2" placeholder="Ответ">
+		<button id="answer">Ответить</button>
+	</div>
+    <div class="timer"></div>
+</body>
+<script>
+	document.querySelector('#start').addEventListener('click', () => {
+		document.querySelector('.mod').style = 'display: none';
+		but = document.querySelector('#answer');
+		field = document.querySelector('.field');
+		answer = 0;
+		score = 0;
+		time = 60;
+
+		function rand(max) {
+			return Math.floor(Math.random() * max);
+		}
+
+		function generate() {
+			type = ['+', '-', '*', '/'];
+			type = type[rand(4)];
+			if (type == '+') {
+				num1 = rand(998) + 1;
+				num2 = rand(998) + 1;
+				field.innerHTML = num1 + ' + ' + num2;
+				answer = num1 + num2;
+			} else if (type == '-') {
+				num1 = rand(998) + 1;
+				num2 = rand(num1);
+				field.innerHTML = num1 + ' - ' + num2;
+				answer = num1 - num2;
+			} else if (type == '*') {
+				num1 = rand(10) + 1;
+				num2 = rand(10) + 1;
+				field.innerHTML = num1 + ' * ' + num2;
+				answer = num1 * num2;
+			}  else if (type == '/') {
+				num1 = rand(10) + 1;
+				num2 = rand(10) + 1;
+				field.innerHTML = num1 * num2 + ' / ' + num2;
+				answer = num1;
+			}
+			
+		}
+
+		generate();
+
+		but.addEventListener('click', () => {
+			input = document.querySelector('input');
+			if (input.value == answer) {
+				score += 1;
+				input.value = '';
+				generate();
+				document.body.classList.add('ok');
+				setTimeout(() => {document.body.classList.remove('ok')}, 100);
+			} else {
+				input.value = '';
+				generate();
+				document.body.classList.add('not');
+				setTimeout(() => {document.body.classList.remove('not')}, 100);
+			}
+		});
+
+		document.addEventListener('keydown', (e) => {
+			if (e.key != 'Enter') {
+				return;
+			}
+			input = document.querySelector('input');
+			if (input.value == answer) {
+				score += 1;
+				input.value = '';
+				generate();
+				document.body.classList.add('ok');
+				setTimeout(() => {document.body.classList.remove('ok')}, 100);
+			} else {
+				input.value = '';
+				generate();
+				document.body.classList.add('not');
+				setTimeout(() => {document.body.classList.remove('not')}, 100);
+			}
+		});
+		setInterval(() => {
+			time -= 1;
+			document.querySelector('.timer').innerHTML = time;
+			if (time == 0) {
+				document.querySelector('.mod').style = '';
+				document.querySelector('.modal').style = 'display: none';
+				document.querySelector('.modal2').style = 'display: flex;';
+				document.querySelector('#res').innerHTML = score;
+				document.querySelector('.timer').outerHTML = '';
+			}
+		}, 1000);
+	});
+
+</script>
+</html>

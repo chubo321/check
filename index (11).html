@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Тёмный справочник по устному счёту</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #333;
+        }
+
+        h1 {
+            color: #00ff9d;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 0 0 5px rgba(0, 255, 157, 0.3);
+        }
+
+        .theory-section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: #00b4ff;
+            border-bottom: 2px solid #00b4ff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .rule-box {
+            background: #2d2d2d;
+            padding: 20px;
+            border-left: 4px solid #00ff9d;
+            margin: 20px 0;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        h3 {
+            color: #00b4ff;
+            margin-bottom: 10px;
+            font-size: 1.4em;
+        }
+
+        p {
+            margin: 10px 0;
+            font-size: 1.1em;
+            color: #ccc;
+        }
+
+        .example {
+            background: #333;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+            font-family: monospace;
+            color: #00ff9d;
+            border: 1px solid #404040;
+        }
+
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 8px 0;
+            color: #b0b0b0;
+        }
+
+        a {
+            color: #00b4ff;
+            text-decoration: none;
+            transition: .2s all;
+        }
+
+        a:hover {
+            opacity: .8;
+            transition: .2s all;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Справочник по устному счёту</h1>
+
+        <div class="theory-section">
+            <h2>Основные арифметические действия</h2>
+
+            <div class="rule-box">
+                <h3>Сложение</h3>
+                <p>a + b = c, где:</p>
+                <ul>
+                    <li>a - первое слагаемое</li>
+                    <li>b - второе слагаемое</li>
+                    <li>c - сумма</li>
+                </ul>
+                <div class="example">
+                    Пример: 12 + 8 = 20
+                </div>
+                <p>Свойства сложения:</p>
+                <ul>
+                    <li>Переместительное: a + b = b + a</li>
+                    <li>Сочетательное: (a + b) + c = a + (b + c)</li>
+                </ul>
+            </div>
+
+            <div class="rule-box">
+                <h3>Вычитание</h3>
+                <p>a - b = c, где:</p>
+                <ul>
+                    <li>a - уменьшаемое</li>
+                    <li>b - вычитаемое</li>
+                    <li>c - разность</li>
+                </ul>
+                <div class="example">
+                    Пример: 25 - 7 = 18
+                </div>
+                <p>Важно: a должно быть больше или равно b (для натуральных чисел).</p>
+            </div>
+
+            <div class="rule-box">
+                <h3>Умножение</h3>
+                <p>a × b = c, где:</p>
+                <ul>
+                    <li>a - первый множитель</li>
+                    <li>b - второй множитель</li>
+                    <li>c - произведение</li>
+                </ul>
+                <div class="example">
+                    Пример: 6 × 7 = 42
+                </div>
+                <p>Свойства умножения:</p>
+                <ul>
+                    <li>Распределительное: a × (b + c) = a × b + a × c</li>
+                    <li>Умножение на ноль: a × 0 = 0</li>
+                </ul>
+            </div>
+
+            <div class="rule-box">
+                <h3>Деление</h3>
+                <p>a ÷ b = c, где:</p>
+                <ul>
+                    <li>a - делимое</li>
+                    <li>b - делитель</li>
+                    <li>c - частное</li>
+                </ul>
+                <div class="example">
+                    Пример: 48 ÷ 6 = 8
+                </div>
+                <p>Особые случаи:</p>
+                <ul>
+                    <li>Деление на 1: a ÷ 1 = a</li>
+                    <li>Деление на себя: a ÷ a = 1 (при a ≠ 0)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="theory-section">
+            <h2>Порядок выполнения операций</h2>
+            <div class="rule-box">
+                <p>1. Действия в скобках</p>
+                <p>2. Умножение и деление (слева направо)</p>
+                <p>3. Сложение и вычитание (слева направо)</p>
+                <div class="example">
+                    Пример: (15 - 3) × 2 + 10 ÷ 5 = 12 × 2 + 2 = 24 + 2 = 26
+                </div>
+            </div>
+        </div>
+
+        <div class="theory-section">
+            <h2>Приёмы быстрого счёта</h2>
+
+            <div class="rule-box">
+                <h3>Умножение на 11</h3>
+                <p>Для двузначных чисел: сложите цифры и поместите сумму между ними</p>
+                <div class="example">
+                    23 × 11 = 253 (2+3=5 → 2 5 3)
+                </div>
+            </div>
+
+            <div class="rule-box">
+                <h3>Возведение в квадрат чисел, оканчивающихся на 5</h3>
+                <p>n5² = (n×(n+1))25</p>
+                <div class="example">
+                    25² = (2×3)25 = 625<br>
+                    75² = (7×8)25 = 5625
+                </div>
+            </div>
+        </div>
+        <a href="/game.html">Начать игру</a>
+    </div>
+</body>
+
+</html>
